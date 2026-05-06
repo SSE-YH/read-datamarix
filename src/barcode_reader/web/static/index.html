@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Barcode Reader</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script defer src="/static/app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="tool-header">
+        <div>
+          <p class="eyebrow">Phase 5</p>
+          <h1>Barcode Reader</h1>
+        </div>
+        <div class="limit-strip" aria-label="upload limits">
+          <span>JPG</span>
+          <span>PNG</span>
+          <span>BMP</span>
+          <span>TIFF</span>
+          <span>JFIF</span>
+          <span>100 files</span>
+          <span>20 MiB each</span>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <section class="upload-panel" aria-labelledby="upload-title">
+          <div id="dropzone" class="dropzone" tabindex="0">
+            <input
+              id="fileInput"
+              class="file-input"
+              type="file"
+              multiple
+              accept=".jpg,.jpeg,.jfif,.png,.bmp,.tif,.tiff,image/jpeg,image/png,image/bmp,image/tiff"
+            />
+            <div class="dropzone-mark" aria-hidden="true"></div>
+            <div class="dropzone-copy">
+              <h2 id="upload-title">이미지 업로드</h2>
+              <p>Data Matrix / QR Code</p>
+            </div>
+            <button id="browseButton" class="primary-button" type="button">
+              파일 선택
+            </button>
+          </div>
+
+          <div id="clientError" class="message error-message" hidden></div>
+
+          <div class="selection-bar">
+            <div>
+              <p class="section-label">선택 파일</p>
+              <p id="selectionStats" class="selection-stats">0 files</p>
+            </div>
+            <div class="action-row">
+              <button id="clearButton" class="ghost-button" type="button" disabled>
+                초기화
+              </button>
+              <button id="uploadButton" class="primary-button" type="button" disabled>
+                업로드 시작
+              </button>
+            </div>
+          </div>
+
+          <ul id="fileList" class="file-list" aria-label="selected files"></ul>
+        </section>
+
+        <aside class="status-panel" aria-labelledby="status-title">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">작업 상태</p>
+              <h2 id="status-title">대기</h2>
+            </div>
+            <span id="statusBadge" class="status-badge idle">Idle</span>
+          </div>
+
+          <div class="progress-shell" aria-label="job progress">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+          <p id="progressText" class="progress-text" aria-live="polite">
+            이미지를 선택하면 업로드할 수 있습니다.
+          </p>
+
+          <dl class="metric-strip">
+            <div>
+              <dt>전체</dt>
+              <dd id="metricTotal">0</dd>
+            </div>
+            <div>
+              <dt>처리</dt>
+              <dd id="metricProcessed">0</dd>
+            </div>
+            <div>
+              <dt>성공</dt>
+              <dd id="metricSuccess">0</dd>
+            </div>
+            <div>
+              <dt>실패</dt>
+              <dd id="metricFailure">0</dd>
+            </div>
+          </dl>
+
+          <div id="serverMessage" class="message" hidden></div>
+
+          <div class="download-row">
+            <a id="downloadCsv" class="download-button disabled" href="#" aria-disabled="true">
+              CSV 다운로드
+            </a>
+            <button id="retryStatusButton" class="ghost-button" type="button" hidden>
+              상태 다시 확인
+            </button>
+          </div>
+        </aside>
+      </div>
+
+      <section id="resultPanel" class="result-panel" aria-labelledby="result-title" hidden>
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">결과</p>
+            <h2 id="result-title">파일별 처리 결과</h2>
+          </div>
+          <p id="jobIdText" class="job-id"></p>
+        </div>
+        <ul id="resultList" class="result-list" aria-label="job image results"></ul>
+      </section>
+    </main>
+  </body>
+</html>

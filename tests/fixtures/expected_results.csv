@@ -1,0 +1,8 @@
+job_id,source_filename,image_index,barcode_index,barcode_type,decoded_text,confidence,bbox_x,bbox_y,bbox_width,bbox_height,status,error_message
+phase0_baseline,image_01.jfif,1,,,,,,,,,needs_review,expected reading pending manual or PoC review
+phase0_baseline,image_02.jfif,2,,,,,,,,,needs_review,expected reading pending manual or PoC review
+phase0_baseline,image_03.jfif,3,,,,,,,,,needs_review,expected reading pending manual or PoC review
+phase0_baseline,image_04.jfif,4,,,,,,,,,needs_review,expected reading pending manual or PoC review
+phase0_baseline,image_05.jfif,5,,,,,,,,,needs_review,expected reading pending manual or PoC review
+phase0_baseline,image_06.jfif,6,,,,,,,,,needs_review,expected reading pending manual or PoC review
+phase0_baseline,image_07.jpg,7,,,,,,,,,needs_review,expected reading pending manual or PoC review

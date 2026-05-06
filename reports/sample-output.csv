@@ -1,0 +1,8 @@
+job_id,source_filename,image_index,barcode_index,barcode_type,decoded_text,confidence,bbox_x,bbox_y,bbox_width,bbox_height,status,error_message
+phase3_sample,image_01.jfif,1,1,DataMatrix,X 4154 110503 1550 N°000010 0.200 2.550 13.0 82.0,,134,54,72,62,success,
+phase3_sample,image_02.jfif,2,,,,,,,,,decode_failed,barcode candidate could not be decoded
+phase3_sample,image_03.jfif,3,1,DataMatrix,00520481760071281031611816,,101,121,59,42,success,
+phase3_sample,image_04.jfif,4,,,,,,,,,decode_failed,barcode candidate could not be decoded
+phase3_sample,image_05.jfif,5,,,,,,,,,decode_failed,barcode candidate could not be decoded
+phase3_sample,image_06.jfif,6,,,,,,,,,not_found,barcode not found
+phase3_sample,image_07.jpg,7,1,DataMatrix,ABCDEFG1234567,,459,135,270,248,success,

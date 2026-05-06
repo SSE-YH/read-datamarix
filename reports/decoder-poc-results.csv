@@ -1,0 +1,36 @@
+source_filename,image_index,decoder_name,target_barcode_type,variant,barcode_index,barcode_type,decoded_text,status,elapsed_ms,bbox_x,bbox_y,bbox_width,bbox_height,error_message
+image_01.jfif,1,zxing-cpp-datamatrix,DataMatrix,original,1,DataMatrix,X 4154 110503 1550 N°000010 0.200 2.550 13.0 82.0,success,0.719,134,54,72,62,
+image_01.jfif,1,zxing-cpp-qrcode,QRCode,original,,,,not_found,0.267,,,,,barcode not found
+image_01.jfif,1,opencv-qrcode,QRCode,original,,,,not_found,17.772,,,,,barcode not found
+image_01.jfif,1,pylibdmtx-datamatrix,DataMatrix,original,,,,not_found,310.638,,,,,barcode not found
+image_01.jfif,1,pyzbar-qrcode,QRCode,original,,,,not_found,2.306,,,,,barcode not found
+image_02.jfif,2,zxing-cpp-datamatrix,DataMatrix,original,,,,not_found,1.056,,,,,barcode not found
+image_02.jfif,2,zxing-cpp-qrcode,QRCode,original,,,,not_found,0.371,,,,,barcode not found
+image_02.jfif,2,opencv-qrcode,QRCode,original,,,,not_found,8.089,,,,,barcode not found
+image_02.jfif,2,pylibdmtx-datamatrix,DataMatrix,original,,,,not_found,487.183,,,,,barcode not found
+image_02.jfif,2,pyzbar-qrcode,QRCode,original,,,,not_found,4.541,,,,,barcode not found
+image_03.jfif,3,zxing-cpp-datamatrix,DataMatrix,original,1,DataMatrix,00520481760071281031611816,success,0.803,101,121,59,42,
+image_03.jfif,3,zxing-cpp-qrcode,QRCode,original,,,,not_found,0.275,,,,,barcode not found
+image_03.jfif,3,opencv-qrcode,QRCode,original,,,,not_found,7.516,,,,,barcode not found
+image_03.jfif,3,pylibdmtx-datamatrix,DataMatrix,original,1,DataMatrix,00520481760071281031611816,success,628.857,100,78,60,9,
+image_03.jfif,3,pyzbar-qrcode,QRCode,original,,,,not_found,3.995,,,,,barcode not found
+image_04.jfif,4,zxing-cpp-datamatrix,DataMatrix,original,,,,not_found,0.523,,,,,barcode not found
+image_04.jfif,4,zxing-cpp-qrcode,QRCode,original,,,,not_found,0.234,,,,,barcode not found
+image_04.jfif,4,opencv-qrcode,QRCode,original,,,,not_found,13.906,,,,,barcode not found
+image_04.jfif,4,pylibdmtx-datamatrix,DataMatrix,original,1,DataMatrix,www.domino.se,success,117.089,157,47,5,61,
+image_04.jfif,4,pyzbar-qrcode,QRCode,original,,,,not_found,1.812,,,,,barcode not found
+image_05.jfif,5,zxing-cpp-datamatrix,DataMatrix,original,,,,not_found,0.589,,,,,barcode not found
+image_05.jfif,5,zxing-cpp-qrcode,QRCode,original,,,,not_found,0.271,,,,,barcode not found
+image_05.jfif,5,opencv-qrcode,QRCode,original,,,,not_found,11.288,,,,,barcode not found
+image_05.jfif,5,pylibdmtx-datamatrix,DataMatrix,original,,,,not_found,657.585,,,,,barcode not found
+image_05.jfif,5,pyzbar-qrcode,QRCode,original,,,,not_found,3.236,,,,,barcode not found
+image_06.jfif,6,zxing-cpp-datamatrix,DataMatrix,original,,,,not_found,0.843,,,,,barcode not found
+image_06.jfif,6,zxing-cpp-qrcode,QRCode,original,,,,not_found,0.328,,,,,barcode not found
+image_06.jfif,6,opencv-qrcode,QRCode,original,,,,not_found,13.252,,,,,barcode not found
+image_06.jfif,6,pylibdmtx-datamatrix,DataMatrix,original,,,,not_found,194.136,,,,,barcode not found
+image_06.jfif,6,pyzbar-qrcode,QRCode,original,,,,not_found,4.389,,,,,barcode not found
+image_07.jpg,7,zxing-cpp-datamatrix,DataMatrix,original,,,,not_found,14.217,,,,,barcode not found
+image_07.jpg,7,zxing-cpp-qrcode,QRCode,original,,,,not_found,6.803,,,,,barcode not found
+image_07.jpg,7,opencv-qrcode,QRCode,original,,,,not_found,50.777,,,,,barcode not found
+image_07.jpg,7,pylibdmtx-datamatrix,DataMatrix,original,,,,not_found,13495.752,,,,,barcode not found
+image_07.jpg,7,pyzbar-qrcode,QRCode,original,,,,not_found,46.989,,,,,barcode not found
