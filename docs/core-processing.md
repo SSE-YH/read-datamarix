@@ -41,6 +41,7 @@ results = read_barcodes("sample_images/image_01.jfif")
 - `sharpen`
 - `adaptive_threshold`
 - `scale_2x`
+- `up_2x_bilateral_global_histogram`
 - `scale_2x_adaptive_threshold`
 - `scale_3x`
 - `scale_3x_adaptive_threshold`
@@ -60,6 +61,8 @@ results = read_barcodes("sample_images/image_01.jfif")
 - Optional slow fallback: `pylibdmtx-datamatrix`, enabled with `read_barcodes(..., enable_slow_fallback=True)`
 
 `pylibdmtx` is kept optional because Phase 1 showed matching Data Matrix reads but much slower processing time.
+
+`up_2x_bilateral_global_histogram` uses a 2x resize plus bilateral filtering, then asks zxing-cpp to decode with `Binarizer.GlobalHistogram`.
 
 ## Failure Reasons
 

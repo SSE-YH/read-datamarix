@@ -30,6 +30,7 @@ class PreprocessVariant:
     cv_image: object | None
     map_bbox: BBoxMapper
     is_slow_fallback_allowed: bool = False
+    zxing_binarizer: str | None = None
 
 
 def load_image(image: str | Path | Image.Image, source_filename: str | None = None) -> LoadedImage:
@@ -85,6 +86,18 @@ def generate_preprocess_variants(loaded: LoadedImage) -> list[PreprocessVariant]
             )
         )
 
+        if scale == 2.0:
+            up_2x_bilateral = _bilateral_filter(scaled)
+            variants.append(
+                _variant(
+                    "up_2x_bilateral_global_histogram",
+                    up_2x_bilateral,
+                    _scale_bbox_mapper(scale),
+                    is_slow_fallback_allowed=True,
+                    zxing_binarizer="GlobalHistogram",
+                )
+            )
+
         scaled_threshold = _adaptive_threshold(scaled)
         variants.append(
             _variant(
@@ -125,6 +138,7 @@ def _variant(
     pil_image: Image.Image,
     map_bbox: BBoxMapper,
     is_slow_fallback_allowed: bool = False,
+    zxing_binarizer: str | None = None,
 ) -> PreprocessVariant:
     return PreprocessVariant(
         name=name,
@@ -132,6 +146,7 @@ def _variant(
         cv_image=pil_to_cv(pil_image),
         map_bbox=map_bbox,
         is_slow_fallback_allowed=is_slow_fallback_allowed,
+        zxing_binarizer=zxing_binarizer,
     )
 
 
@@ -169,6 +184,18 @@ def _adaptive_threshold(image: Image.Image) -> Image.Image:
         grayscale = ImageOps.grayscale(image)
         threshold = grayscale.point(lambda pixel: 255 if pixel > 160 else 0)
         return threshold.convert("RGB")
+
+
+def _bilateral_filter(image: Image.Image) -> Image.Image:
+    try:
+        import cv2
+        import numpy as np
+
+        rgb = np.array(image.convert("RGB"))
+        filtered = cv2.bilateralFilter(rgb, d=7, sigmaColor=45, sigmaSpace=45)
+        return Image.fromarray(filtered).convert("RGB")
+    except Exception:
+        return image.filter(ImageFilter.SMOOTH_MORE)
 
 
 def _scale_bbox_mapper(scale: float) -> BBoxMapper:

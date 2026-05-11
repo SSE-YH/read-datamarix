@@ -63,7 +63,15 @@ def make_zxing_decoder() -> DecoderAdapter | None:
 
         def decode(self, variant: PreprocessVariant) -> DecodeAttempt:
             results: list[RawDecodeResult] = []
-            for result in zxingcpp.read_barcodes(variant.pil_image, formats=formats):
+            read_kwargs = {"formats": formats}
+            binarizer = zxing_binarizer_for_variant(zxingcpp, variant)
+            if binarizer is not None:
+                read_kwargs["binarizer"] = binarizer
+
+            for result in zxingcpp.read_barcodes(
+                variant.pil_image,
+                **read_kwargs,
+            ):
                 text = result.text or text_from_bytes(result.bytes)
                 if not text:
                     continue
@@ -77,6 +85,16 @@ def make_zxing_decoder() -> DecoderAdapter | None:
             return DecodeAttempt(tuple(results), candidate_found=bool(results))
 
     return ZxingDecoder()
+
+
+def zxing_binarizer_for_variant(zxingcpp: object, variant: PreprocessVariant) -> object | None:
+    if not variant.zxing_binarizer:
+        return None
+
+    try:
+        return getattr(zxingcpp.Binarizer, variant.zxing_binarizer)
+    except AttributeError:
+        return None
 
 
 def make_opencv_qr_decoder() -> DecoderAdapter | None:
